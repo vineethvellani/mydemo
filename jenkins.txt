@@ -1,0 +1,65 @@
+### jenkins installation
+
+sudo apt update
+sudo apt install openjdk-11-jdk -y
+wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt update
+sudo apt install jenkins -y
+sudo systemctl start jenkins
+
+
+
+### Access Jenkins at http://localhost:8080
+
+Use the admin password from /var/lib/jenkins/secrets/initialAdminPassword
+
+
+
+
+Step 1: Install the Git Plugin in Jenkins
+Open Jenkins:
+
+Go to http://localhost:8080 (or your Jenkins URL).
+Install the Git Plugin:
+
+Go to Manage Jenkins > Manage Plugins.
+In the Available tab, search for the Git Plugin.
+Check the checkbox next to Git plugin and click Install without restart.
+This will allow Jenkins to pull code from GitHub.
+
+Step 2: Create a GitHub Personal Access Token (for Authentication)
+To allow Jenkins to interact with your GitHub repository, you need to create a Personal Access Token (PAT) for authentication.
+
+Log into GitHub:
+
+Go to GitHub and log into your account.
+Create a Personal Access Token:
+
+Go to your GitHub Account Settings > Developer settings > Personal access tokens.
+Click on Generate new token.
+Select the necessary scopes (usually, you need at least repo for private repositories and admin:repo_hook for webhooks).
+Click Generate token and copy the token. You'll need it for Jenkins.
+
+
+Step 3: Configure Jenkins to Connect to GitHub
+Go to Jenkins Dashboard:
+
+Open your Jenkins dashboard (usually http://localhost:8080).
+Add GitHub Credentials:
+
+From the Jenkins dashboard, go to Manage Jenkins > Manage Credentials.
+Select (Global) and then Add Credentials.
+Set the Kind to Username with password.
+For Username, enter your GitHub username.
+For Password, paste the Personal Access Token you created earlier.
+Optionally, give it a unique ID for easier reference (e.g., GitHub-Credentials).
+Click OK to save the credentials.
+
+
+
+
+
+
+
+
