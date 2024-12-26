@@ -2,12 +2,13 @@
   "name": "your-project-name",
   "version": "1.0.0",
   "description": "A simple Node.js project",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "express": "^4.21.2"
+  }
 }
-
